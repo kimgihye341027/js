@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건에 만족할때까지 반복</title>
+  </head>
+  <body>
+    <h2>10이상의 숫자를 입력하세요</h2>
+    <input type="number" id="numberInput" placeholder="숫자를 입력하세요" />
+    <button onclick="checkNum()">확인</button>
+    <script>
+      function checkNum() {
+        // parseInt() 문자열을 숫자로 바꾼다.
+        let num = parseInt(document.querySelector("#numberInput").value);
+        // console.log(num);
+        while (num < 10 || isNaN(num)) {
+          // num이 10보가 작거나 숫자가 아닌경우
+          num = parseInt(prompt("10이상의 숫자를 입력하세요!"));
+          // prompt()를 사용해서 올바른 값이 입력될때까지 반복
+        }
+        document.write(`조건 만족!! 입력한 숫자 : ${num} `);
+      }
+    </script>
+  </body>
+</html>

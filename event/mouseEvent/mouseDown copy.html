@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouseover mouseleave 이벤트</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 2px solid #333;
+            transition: all 0.8s;
+        }
+        .chageColor{
+            background-color: aqua;
+            border-radius: 50%;
+            border: 3px dotted blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>mouseover mouseleave 이벤트</h1>
+    <div class="box"></div>
+    <script>
+        const boxColor = document.querySelector(".box")
+        boxColor.addEventListener("mouseover" ,function(){
+            this.classList.add("chageColor")
+        })
+        boxColor.addEventListener("mouseleave" ,function(){
+            this.classList.remove("chageColor")
+        })
+    </script>
+</body>
+</html>

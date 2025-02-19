@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">안녕 하세요!!!</h1>
+    <p class="description">여기는 p태그입니다.</p>
+    <button id="changeTextBtn">클릭하면 글자 변경</button>
+    <script>
+        const title = document.querySelector("#title")
+        const description = document.querySelector(".description")
+        const btn = document.querySelector("#changeTextBtn")
+        btn.addEventListener("click" , function(){
+            title.innerHTML = `<h4 class="title"> 반갑습니다. </h4>`
+            description.textContent = ` <span>글자가 변경됨</span>`
+        })
+    </script>
+</body>
+</html>

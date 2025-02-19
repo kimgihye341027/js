@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수</title>
+  </head>
+  <body>
+    <button>클릭</button>
+    <script>
+      function calcSum(n) {
+        console.log(n);
+        let sum = 0;
+        console.log(sum);
+      }
+
+      calcSum(120);
+      let display = function displayNum() {
+        console.log(x);
+        let x = 30;
+        return;
+      };
+
+      //  매개변수가 없는경우
+      const hi = function () {
+        alert("안녕하세요?");
+      };
+      // document.querySelector("button").addEventListener("click", h1);
+      // 일반 함수
+      function add(a, b) {
+        return a + b;
+      }
+
+      // 화살표 함수
+      const add1 = (a, b) => a + b;
+      console.log(add1(1, 2));
+    </script>
+  </body>
+</html>

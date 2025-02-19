@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch문</title>
+  </head>
+  <body>
+    <script>
+      // 사용자가 입력한 점수로 학점 알아보기
+      let score = parseInt(prompt("점수를 입력하세요."));
+      let grade;
+      switch (true) {
+        case score >= 90:
+          grade = "A";
+          break;
+        case score >= 80:
+          grade = "B";
+          break;
+        case score >= 70:
+          grade = "C";
+          break;
+        case score >= 60:
+          grade = "D";
+          break;
+        default:
+          grade = "F";
+      }
+      alert(`당신의 학점은 ${grade} `)
+    </script>
+  </body>
+</html>

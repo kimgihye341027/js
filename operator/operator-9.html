@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOT연산자</title>
+  </head>
+  <body>
+    <h2>NOT연산자 (!)</h2>
+    <p id="result"></p>
+
+    <script>
+      let isRaining = false;
+      let result = document.querySelector("#result");
+      console.log(isRaining);
+      if (!isRaining) {
+        console.log(!isRaining);
+
+        alert("비가 오지 않습니다.");
+      } else {
+        result.textContent = "비가 오고 있습니다. 우산은 챙겨주세요.";
+      }
+    </script>
+  </body>
+</html>

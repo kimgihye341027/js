@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>당첨자 발표</title>
+  </head>
+  <body>
+    <h1>당첨자 발표</h1>
+    <script>
+      let seed = prompt("전체 응모자 수"); // 알림창
+      // console.log(seed);
+      // 1을 더하는 이유가 기준을 1부터 시작하기 위해서
+      let picked = Math.floor(Math.random() * seed + 1)
+      console.log(picked);
+      document.write(`전체 인원수 : ${seed} <br>`)
+      document.write(`당첨자 번호 : ${picked}`)
+      
+      
+    </script>
+  </body>
+</html>

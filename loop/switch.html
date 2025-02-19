@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch문</title>
+  </head>
+  <body>
+    <script>
+      // switch문은 if~else 를 대체할때 사용 , 가독성이 좋아짐
+      // 요일 출력 예제
+      let day = new Date().getDay(); // 0(일요일) ~ 6(토요일)
+      // console.log(day); // 3 - 수요일
+      switch (day) {
+        case 0:
+          console.log("일요일");
+          break;
+        case 1:
+          console.log("월요일");
+          break;
+        case 2:
+          console.log("화요일");
+          break;
+        case 3:
+          console.log("수요일");
+          break;
+        case 4:
+          console.log("목요일");
+          break;
+        case 5:
+          console.log("금요일");
+          break;
+        case 6:
+          console.log("토요일");
+          break;
+        default:
+          console.log("알수 없음");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>웹 프로그래밍</h1>
+      <!-- p태그 생성 -->
+    </div>
+    <!-- 새로운영역 -->
+    <div class="notice">
+      <!-- js출력 -->
+      <!-- <span>안녕하세요</span> -->
+    </div>
+    <script>
+      // p태그생성
+      const newP = document.createElement("p");
+      console.log(newP);
+      
+      const txtNode = document.createTextNode("DOM 은 document object model의 준말입니다.");
+      console.log(txtNode);
+      
+      newP.appendChild(txtNode);
+    //  container영역안에 p태그 연결
+    document.getElementById("container").appendChild(newP)
+    </script>
+  </body>
+</html>

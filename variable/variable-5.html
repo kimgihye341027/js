@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      var num = 10;
+      // console.log(typeof num);
+      var str = "hello";
+      // console.log(typeof str);
+      var bool = true;
+      // console.log(typeof bool);
+      // 전역변수
+      var globalVar = "하경미";
+      
+      function testScope() {
+        // 지역변수
+        var localVar = "그린";
+        console.log(localVar);
+        console.log(globalVar);
+      }
+      testScope();
+      function nameScope(){
+       
+      }
+      console.log(globalVar);
+      // var localVar = "그린";
+      // console.log(localVar); //오류 localVar 못찾는다.
+      // 상수 - 변하지 않는 데이터 (재할당 불가)
+      const PI = 3.14;
+      // const pi = 3.14
+      // const PI = 2;
+      PI = 3.1425485;
+      console.log(PI); // 오류
+    </script>
+  </body>
+</html>

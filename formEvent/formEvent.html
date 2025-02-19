@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      #myForm {
+        width: 100%;
+        max-width: 500px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      #myForm label {
+        display: block;
+        margin: 5px 0;
+      }
+      #myForm input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      #myForm button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      #output {
+        max-width: 500px;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">이름:</label>
+      <input id="name" type="text" />
+      <br />
+      <label for="email">이메일:</label>
+      <input id="email" type="text" />
+      <br />
+      <button type="submit">폼 제출하기</button>
+      <button type="reset">폼 초기화하기</button>
+    </form>
+    <div id="output">
+      <!-- js로 출력 -->
+    </div>
+    
+    <script>
+      const form = document.querySelector("#myForm");
+      const output = document.querySelector("#output");
+      //   입력 제출
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const nameValue = document.querySelector("#name").value;
+        // console.log(nameValue);
+        const emailValue = document.querySelector("#email").value;
+        output.innerHTML = `
+       <p> 이름: <strong>${nameValue}</strong></p>
+       <p> 이메일: <strong>${emailValue}</strong></p>
+       <button id="loginHref">확인하기</button>
+        `;
+        // 확인하기 클릭하면 해당페이지로 이동
+        const loginHref = document.querySelector("#loginHref");
+        loginHref.addEventListener("click" , function(){
+        //    console.log("확인 클릭");
+        window.location.href= "change.html"
+            
+        })
+      });
+      // 입력 초기화
+      form.addEventListener("reset", function () {
+        output.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>

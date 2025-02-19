@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화살표 함수</title>
+  </head>
+  <body>
+    <script>
+      // 기본함수
+      //   function add(a, b) {
+      //    return a + b;
+      //   }
+      // 화살표 함수 변경
+      const add = (a, b) => a + b;
+      //  {}(중괄호) 와 return 생략가능 (한줄일때)
+      // 더 짧고 간단함
+      //   1.매개변수가 하나일때
+      const square = (x, y, c) => x * y * c;
+      console.log(square(20, 2, 3));
+      //   2. 매개변수가 여러줄일때
+      const greet = (name) => {
+        return `안녕 , ${name} `;
+      };
+      console.log(greet("철수"));
+    </script>
+  </body>
+</html>

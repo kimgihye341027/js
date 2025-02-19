@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b, c, d) {
+        console.log(a);
+        console.log(b);
+
+        let sum = a + b + c + d;
+
+        // console.log(sum);
+        return sum;
+      }
+      // add(4, 7 , 9 , 10);
+      // 함수를 호출하고 반환값을 변수에 저장한다.
+      let result = add(4, 7, 9, 10);
+      let result2 = add(10, 30, 20,50);
+      let result3 = add(1, 2, 3, 4)
+      document.write(result);
+      document.write(result2);
+      document.write(result3)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline-event</title>
+    <style>
+        button{
+            border: 2px solid blue;
+        }
+        input {
+            border: 2px solid green;
+            color: green;
+            padding: 5px;
+            outline: none;
+        }
+    </style>
+  </head>
+  <body>
+    <button onclick="clickEvent(this)">클릭</button>
+    <input type="text" onfocus="focusEvent(this)" onblur="blurEvent(this)" />
+    <script>
+      function clickEvent(el) {
+        console.log(el);
+        el.style.border = "2px solid red";
+        // console.log("click");
+
+      }
+      function focusEvent(el) {
+        console.log("focus on");
+        console.log(el);
+        el.style.border = "2px solid orange"
+      }
+      function blurEvent(el) {
+        console.log("focus off");
+        console.log(el);
+         el.style.border = "2px solid green"
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll이벤트/ 스크롤시 이미지 보임 안보임</title>
+  </head>
+  <style>
+    body {
+      height: 1500px;
+    }
+    .container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .container img {
+      width: 100%;
+      transition: all 0.5s;
+      opacity: 0;
+    }
+    .img.view {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <h1>scroll이벤트</h1>
+    <div class="container">
+      <img src="../scrollLoading/KakaoTalk_20250211_101243720.jpg" alt="이미지" class="img" />
+    </div>
+    <script>
+      window.addEventListener("scroll", function () {
+        const img = document.querySelector(".img");
+        //getBoundingClientRect() 자바스크립트 메서드
+        //이미지 요소의 경계상자의 정보제공
+        const imgPosition = img.getBoundingClientRect().top;
+        // console.log(imgPosition);
+        const windowHeight = window.innerHeight;
+        // console.log(windowHeight);
+        if (imgPosition < windowHeight && imgPosition < 0) {
+          img.classList.add("view");
+        }else{
+            img.classList.remove("view");
+        }
+      });
+    </script>
+  </body>
+</html>

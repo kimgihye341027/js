@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수</title>
+    <style>
+      #menu {
+        display: none;
+      }
+      #menu.open {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 토글메유 -->
+    <!-- <button onclick="toggleMenu()">메뉴 열기/닫기</button> -->
+    <button class="toggleMenu">메뉴 열기/닫기</button>
+    <nav id="menu">
+      <ul>
+        <li>홈</li>
+        <li>서비스</li>
+        <li>연락처</li>
+      </ul>
+    </nav>
+    <!-- 배경색 변경 -->
+    <button onclick="changeColor('red')">배경색 red 변경</button>
+    <button onclick="changeColor('blue')">배경색 blue 변경</button>
+    <button onclick="changeColor('green')">배경색 green 변경</button>
+   
+  
+    <script>
+      // 토글메뉴
+      // function toggleMenu(){
+
+      // }
+      let toggleMent = document.querySelector(".toggleMenu");
+      let menu = document.querySelector("#menu");
+
+      function toggleMenu() {
+        menu.classList.toggle("open");
+      }
+      toggleMent.addEventListener("click", toggleMenu);
+      // 배경색 변경
+      function changeColor(color) {
+        // alert("클릭")
+        // document.body.style.backgroundColor = color;
+        if (document.body.style.backgroundColor === color) {
+          document.body.style.backgroundColor = "";
+        } else {
+          document.body.style.backgroundColor = color;
+        }
+      }
+
+    </script>
+  </body>
+</html>

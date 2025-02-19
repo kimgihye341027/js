@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date객체</title>
+  </head>
+  <body>
+    <div id="container">
+      <p>
+        현재시각:
+        <span id="current" class="display">
+          <!-- js출력 -->
+        </span>
+      </p>
+    </div>
+    <script>
+      const products = [
+        { name: "노트북", date: new Date(2025, 1, 15) },
+        { name: "스마트폰", date: new Date(2025, 1, 16) },
+      ];
+      // forEach(function()) 무조건 넣어야함
+      products.forEach(function (product) {
+        //console.log(products);
+        console.log(`이름: ${product.name} 등록일: ${product.date.toLocaleDateString()}`);
+      });
+    </script>
+  </body>
+</html>

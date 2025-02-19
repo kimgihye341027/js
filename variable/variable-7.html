@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        /* 기본 색상 */
+        --primary-color: #3498db; /* 메인 색상 */
+        --secondary-color: #2ecc71; /* 보조 색상 */
+        --tertiary-color: #f39c12; /* 강조 색상 */
+
+        /* 배경 색상 */
+        --background-color-light: #ecf0f1; /* 밝은 배경 */
+        --background-color-dark: #2c3e50; /* 어두운 배경 */
+
+        /* 텍스트 색상 */
+        --text-color-light: #2c3e50; /* 기본 텍스트 색상 */
+        --text-color-dark: #ecf0f1; /* 다크모드 텍스트 색상 */
+
+        /* 버튼 색상 */
+        --button-primary: #e74c3c; /* 기본 버튼 색상 */
+        --button-hover: #c0392b; /* 버튼 hover 색상 */
+      }
+      body {
+        background-color: var(--background-color);
+      }
+      button {
+        background-color: var(--button-color);
+        color: var(--primary-color);
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="showName">이름확인</button>
+    <button id="btn">클릭하세요</button>
+    <button id="fecthBtn">상품목록을 가져 오기</button>
+  </body>
+</html>

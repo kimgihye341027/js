@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+    <style>
+      /* 모바일 메뉴 토글 */
+      .menu-btn {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .menu {
+        background-color: #ddd;
+        padding: 10px;
+        display: none;
+      }
+      .menu.open {
+        display: block;
+        background-color: red;
+      }
+      /* 다크모드 적용 */
+      body.dark-mode {
+        background-color: #333;
+      }
+      body.dark-mode .menu-btn {
+        background-color: #eee;
+        color: #666;
+      }
+      /* 메뉴 클릭 */
+      .click-nav {
+        padding: 50px 0;
+      }
+      .click-menu {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 모바일 메뉴 토글 -->
+    <button class="menu-btn">☰ 메뉴</button>
+    <nav class="menu">
+      <a href="#">홈</a>
+      <a href="#">서비스</a>
+      <a href="#">연락처</a>
+    </nav>
+    <!-- 메뉴 클릭 -->
+    <div class="click-nav">
+      <button class="click-btn">토글메뉴</button>
+      <ul class="click-menu">
+        <li>메뉴 1</li>
+        <li>메뉴 2</li>
+        <li>메뉴 3</li>
+      </ul>
+    </div>
+
+    <!-- 다크모드 적용 -->
+    <button id="dark-mode-toggle" class="menu-btn">다크모드</button>
+    <!-- 폼 유효성검사 -->
+    <form id="signup-form">
+      <input type="text" id="email" placeholder="이메일 입력" required />
+      <button type="submit">가입</button>
+    </form>
+    <script>
+      // 모바일 메뉴 토글
+      let menuBtn = document.querySelector(".menu-btn");
+      let menu = document.querySelector(".menu");
+      menuBtn.addEventListener("click", function () {
+        if (menu.classList.contains("open")) {
+          menu.classList.remove("open");
+        } else {
+          menu.classList.add("open");
+        }
+      });
+      // 클릭메뉴
+      let clickBtn = document.querySelector(".click-btn");
+      let clickMenu = document.querySelector(".click-menu");
+      clickBtn.addEventListener("click", function () {
+        if (clickMenu.style.display === "none") {
+          clickMenu.style.display = "block";
+        }else{
+          clickMenu.style.display = "none";
+        }
+      });
+      // 다크모드 적용
+      let darkModeToggle = document.querySelector("#dark-mode-toggle");
+      let bodyEle = document.body;
+      darkModeToggle.addEventListener("click", function () {
+        if (bodyEle.classList.contains("dark-mode")) {
+          bodyEle.classList.remove("dark-mode");
+        } else {
+          bodyEle.classList.add("dark-mode");
+        }
+      });
+      // 폼 유효성 검사
+      let form = document.querySelector("#signup-form");
+      let emailInput = document.querySelector("#email");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (emailInput.value.indexOf("@") === -1) {
+          alert("이메일에 @ 꼭 입력해주세요");
+        }
+      });
+    </script>
+  </body>
+</html>

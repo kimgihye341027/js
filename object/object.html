@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h1>JavaDcript 표준 내장 객체예제</h1>
+    <script>
+        // JavaDcript 표준 내장 객체예제
+        // 1.string 2.Array 3.Date 4.Math
+        // 1.string 내장객체
+        const str ="Hello World"
+        console.log(str.length); // 문자의 길이를 알수 있는 속성
+        console.log(str.toUpperCase()); // 메소드()-> 대문자변형
+        console.log(str.toLowerCase()); // 메소드()-> 소문자변형
+        console.log(str.includes("World")); // 참거짓분별 -> false
+        // 2.Array 내장객체**
+        const arr = [1,2,3,4]
+        console.log(arr.length);
+        console.log(arr.push(5)); // 5 (추가후 길이)
+        console.log(arr); // [1,2,3,4,5]
+        console.log(arr.join("==")); // 1==2==3==4==5
+        // 3.Date객체
+        const today = new Date()
+        console.log(today.toDateString()); // 현재 날짜
+        console.log(today.getFullYear()); // 연도
+        console.log(today.getMonth() +1); // 월(0부터출력)
+        // 4. Math 객체
+        console.log(Math.PI); //3.14159
+        console.log(Math.max(10,20,5)); //최대값
+        console.log(Math,random()); // 0~1사이의 난수
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

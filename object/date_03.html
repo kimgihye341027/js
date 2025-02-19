@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date객체 활용 날짜선택 기록하기</title>
+    <style>
+      :root {
+        --primary-color: #4caf50;
+        --primary-hover-color: #337435;
+        --secondary-color: #ff9800;
+        --bg-color: #f4f4f4;
+        --text-white-color: #fff;
+        --text-color: #333;
+        --font-family: "Segoe UI", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--bg-color);
+        font-family: var(--font-family);
+        color: var(--text-color);
+      }
+      header {
+        background-color: var(--primary-color);
+        color: var(--text-white-color);
+        padding: 20px;
+        text-align: center;
+      }
+      .container {
+        width: 50%;
+        max-width: 500px;
+        min-width: 320px;
+        margin: 50px auto;
+      }
+      .card {
+        background-color: var(--text-white-color);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: var(--primary-color);
+      }
+      #dateForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      input,
+      textarea,
+      select,
+      button {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      button {
+        background-color: var(--primary-color);
+        color: var(--text-white-color);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      button:hover {
+        background-color: var(--primary-hover-color);
+      }
+      .log {
+        margin-top: 15px;
+        padding: 10px;
+        background: #e0f7e9;
+        border-radius: 8px;
+      }
+      .txt {
+        padding: 5px;
+        margin-bottom: 10px;
+        background-color: var(--bg-color);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Date 객체 웹사이트 예제</h1>
+    </header>
+    <div class="container">
+      <div class="card">
+        <h2>날짜 선택 및 기록</h2>
+        <form class="date-form" id="dateForm">
+          <!-- 날짜 선택 -->
+          <label for="date">날짜 선택:</label>
+          <input type="date" id="date" required />
+          <!-- 글작성 -->
+          <label for="content">글작성:</label>
+          <textarea id="content" placeholder="오늘의 메모"></textarea>
+          <!-- 상태 이모지 -->
+          <label for="status">상태 이모지 선택:</label>
+          <select name="status" id="status">
+            <option value="😀">😀 행복</option>
+            <option value="😐">😐 보통</option>
+            <option value="😢">😢 슬픔</option>
+            <option value="😡">😡 화남</option>
+          </select>
+          <button type="submit">기록하기</button>
+        </form>
+        <div class="log" id="log">
+          <!-- js출력 -->
+        </div>
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("dateForm");
+      const log = document.getElementById("log");
+      let enteries = [];
+      // console.log(enteries);
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const date = new Date(document.getElementById("date").value);
+        const content = document.getElementById("content").value.trim() || "내용없음";
+        const status = document.getElementById("status").value;
+        const now = new Date().toLocaleString();
+        enteries.push({ date, content, status, now });
+        // console.log(enteries);
+        // 오름차순(작은 날짜부터 큰날짜)정렬
+
+        enteries.sort((a, b) => {
+          // console.log(`a:${a} , b:${b} `);
+          // 두 날짜를 빼서 작은값부터 큰값 순서로 배열한다
+          // 결과가 음수면 a가 b보다 앞에
+          // 결과가 양수면 b가 a보가 앞에
+          return a.date - b.date;
+        });
+        log.innerHTML = enteries
+          .map(
+            (entry) =>
+              `
+           <p class="txt"><strong>기록날짜:${entry.date.toLocaleDateString()}</strong>(${entry.status} ) <br>
+            메모:${entry.content} <br>
+            <small>기록 시간:${entry.now} </small>
+           </p>
+        `
+          )
+          .join("");
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

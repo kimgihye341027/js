@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      #close {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="openModalBtn">open modal</button>
+    <div class="modal" id="mymodal">
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <h2>Modal Title</h2>
+        <p>여기는 안내창입니다.</p>
+      </div>
+    </div>
+    <script>
+      const modal = document.querySelector("#mymodal");
+      const openBtn = document.querySelector("#openModalBtn");
+      const close = document.querySelector("#close");
+      openBtn.addEventListener("click", function () {
+        modal.style.display = "flex";
+        // console.log(event);
+      });
+      close.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+      //   window에 클릭하면 모달이 닫기
+      window.addEventListener("click", function () {
+        // console.log("click");
+        // console.log(event);
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

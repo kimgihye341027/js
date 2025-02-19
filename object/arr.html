@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 객체</title>
+  </head>
+  <body>
+    <h1>JavaScript Array 객체 주요 속성과 메서드</h1>
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      //console.log(arr);
+      //1.length 속성
+      console.log(`length: ${arr.length}`); //5
+      //2. push() : 배열 끝에 요소를 추가
+      arr.push(6);
+      console.log(`push: ${arr}`);
+      //3. pop():배열 끝 요소 제거
+      arr.pop();
+      console.log(`pop: ${arr}`);
+      //4.shift() : 배열 첫 요소 제거
+      arr.shift();
+      console.log(`shift: ${arr}`); //2,3,4,5
+      //5.unshift(): 배열 앞에 요소 추가
+      arr.unshift(1);
+      console.log(`unshift: ${arr}`); //1,2,3,4,5
+      //6. indexOf() : 요소의 위치 반환
+      console.log(`indexOf 3:${arr.indexOf(3)}`); // 숫자 3의 인덱스번호 반환 -2
+      //7.slice() :배열 일부 반환
+      console.log(`slice : ${arr.slice(1, 4)}`); // 2,3,4
+      //8.splice() : 배열 요소 추가/삭제
+      //splice(시작인덱스, 삭제할 개수, 추가할요소);
+      arr.splice(2, 1, 99);
+      console.log(`splic :${arr}`); //
+      //9.join() : 배열을 문자열로 변환
+      console.log(`join:${arr.join("==")}`);
+      //10.forEach() : 각 요소에 대해 함수 실행
+      // 비파괴적 메서드
+      arr.forEach(function (item) {
+        console.log(`forEach: ${item}`);
+      });
+    </script>
+  </body>
+</html>

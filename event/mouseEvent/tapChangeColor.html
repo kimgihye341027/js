@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭버튼으로 바탕색 변경하기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+        width: 300px;
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        background-color: antiquewhite;
+      }
+      ul li {
+        border: 1px solid #ccc;
+        width: calc(100% / 3);
+      }
+      ul li:nth-child(2) {
+        border-left: none;
+        border-right: none;
+      }
+      #result {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 3px solid #ccc;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#" id="green" data-color="green">Green</a></li>
+      <li><a href="#" id="orange" data-color="orange">Orange</a></li>
+      <li><a href="#" id="purple" data-color="purple">Purple</a></li>
+    </ul>
+    <div id="result">
+      <!-- js색변경 -->
+    </div>
+    <script>
+      const links = document.querySelectorAll("ul li a");
+      //   console.log(links);
+      links.forEach(function (item, index) {
+        // console.log(item);
+        // console.log(index);
+        item.addEventListener("click", function () {
+          // console.log(item);
+          //   changeBg(color)
+          changeBg(this.getAttribute("data-color"));
+        // console.log(this);
+        
+        //   console.log(this.getAttribute("data-color"));
+          
+        });
+      });
+      // 바탕색을 변경하는 함수
+      function changeBg(color) {
+        const bg = document.getElementById("result");
+        bg.style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

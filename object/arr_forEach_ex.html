@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 비파괴 메서드</title>
+    <style>
+      .product {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>상품 리스트</h1>
+    <div id="product-list">
+      <!-- js출력 -->
+    </div>
+    <h2>filter() :10만원 이상 상품만 출력</h2>
+    <div id="expensive-list">
+      <!-- js출력 -->
+    </div>
+    <h2>forEach() 각 상품의 이름 화면출력</h2>
+    <div id="product-name">
+      <!-- js출력 -->
+    </div>
+    <script>
+      const products = [
+        { id: 1, name: "노트북", price: 1200000 },
+        { id: 2, name: "마우스", price: 25000 },
+        { id: 3, name: "키보드", price: 55000 },
+        { id: 4, name: "모니터", price: 350000 },
+      ];
+
+      // map() 상품을 HTML요소로 반환
+      const productHTML = products
+        .map(function (product) {
+          // console.log(product);
+          return `
+       <div class="product">
+        <h2>${product.name}</h2>
+        <p>가격:${product.price.toLocaleString()}원</p>
+      </div>
+        `;
+        })
+        .join("");
+      document.getElementById("product-list").innerHTML = productHTML;
+      // filter() :10만원 이상 상품만 출력
+      const expensiveProducts = products.filter(function (p) {
+        // console.log(p);
+        return p.price >= 100000;
+      });
+      const expensiveHTML = expensiveProducts
+        .map(function (p) {
+          return `
+       <div class="product">
+        <h2>${p.name}</h2>
+        <p>가격:${p.price.toLocaleString()}원</p>
+      </div>
+        `;
+        })
+        .join("");
+      document.getElementById("expensive-list").innerHTML = expensiveHTML;
+      //  forEach() 각 상품의 이름 화면출력
+      let namesHTML = "";
+      products.forEach(function (pro) {
+        // console.log(pro);
+        namesHTML += `<p> ${pro.name} </p>`;
+      });
+      document.getElementById("product-name").innerHTML = namesHTML
+    </script>
+  </body>
+</html>

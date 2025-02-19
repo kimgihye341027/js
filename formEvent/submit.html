@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit 이벤트</title>
+  </head>
+  <body>
+    <h1>submit 이벤트</h1>
+    <form id="myForm">
+      <label for="name">이름:</label>
+      <input id="name" type="text" />
+      <br />
+      <label for="email">이메일:</label>
+      <input id="email" type="text" />
+      <br />
+      <button type="submit">로그인</button>
+    </form>
+    <div id="output">
+      <!-- js출력 -->
+      <p>이름:<strong>하경미</strong></p>
+      <p>이메일: <strong>haglass@naver.com</strong></p>
+    </div>
+    <script>
+      const form = document.querySelector("#myForm");
+      const output = document.querySelector("#output");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // alert("정보제출")
+        const nameE = document.querySelector("#name");
+        const nameValue = nameE.value;
+        // console.log(nameValue);
+        const emailE = document.querySelector("#email");
+        const emailValue = emailE.value;
+        console.log(emailValue);
+        // textContent
+        output.innerHTML = `
+        <p> 이름:<strong>${nameValue}</strong> </p>
+        <p>이메일: <strong>${emailValue}</strong></p> 
+        `;
+      });
+    </script>
+  </body>
+</html>

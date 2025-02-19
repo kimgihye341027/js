@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수 선언하기</title>
+  </head>
+  <body>
+    <script>
+      // 1. 변수선언하기
+      var userName = prompt("이름을 입력하세요", "");
+      console.log(userName);
+
+      // 2.보여지는 부분을 변수 선언하기
+      //   var greeting = "안녕하세요" + userName + "님! 환영합니다.";
+      var greeting = `안녕하세요~ <h1>${userName}</h1> 님! 환영합니다.`;
+
+      console.log(greeting);
+      alert(greeting);
+      document.write(greeting);
+    </script>
+  </body>
+</html>

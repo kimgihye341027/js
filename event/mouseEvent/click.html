@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>click 이벤트</title>
+  </head>
+  <body>
+    <button class="clickBt">클릭하세요</button>
+    <p class="displayTxt">
+      <!-- js출력 -->
+    </p>
+    <script>
+      // 변수에 저장
+      const clickBT = document.querySelector(".clickBt");
+      const displayTxt = document.querySelector(".displayTxt");
+      // clickBT.onclick = function(){}
+      clickBT.addEventListener("dblclick", function (event) {
+
+        console.log(event);
+
+        console.log(`type : ${event.type}`);
+        console.log(`clientY: ${event.clientY}`);
+        console.log(`clientX: ${event.clientX}`);
+        // clientX, clientY → 브라우저 내부에서의 좌표
+        console.log(`pageX: ${event.pageX}`);
+        console.log(`pageY: ${event.pageY}`);
+        // pageX, pageY → 전체 문서에서의 좌표(스크롤 영향 받음)
+        console.log(`screenX:${event.screenX}`);
+        console.log(`screenY :${event.screenY}`);
+        // screenX, screenY → 사용자의 화면(모니터) 기준 좌표
+        
+        // console.log(clickBT);
+        displayTxt.innerHTML = `안녕하세요`;
+
+      });
+      
+    </script>
+  </body>
+</html>

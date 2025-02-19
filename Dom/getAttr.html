@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a태그 변경</title>
+</head>
+<body>
+    <a href="http://www.naver.com" >네이버</a>
+    <script>
+        const aEl = document.querySelector("a")
+        const href = aEl.getAttribute("href") // 요소의 특정 속성 값을 가져옴
+        console.log(aEl);
+        
+        aEl.setAttribute("href" , "http://www.google.com") // 요소의 특정 속성 값을 설정
+        aEl.innerHTML = "구글"
+        aEl.setAttribute("target" , "_blank")
+        aEl.setAttribute("class" , "link")
+
+    </script>
+</body>
+</html>

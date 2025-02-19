@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date객체</title>
+  </head>
+  <body>
+    <div id="container">
+      <p>
+        현재시각:
+        <span id="current" class="display">
+          <!-- js출력 -->
+        </span>
+      </p>
+    </div>
+    <script>
+        //setInterval()함수는 일정시간 간격으로 반복실행해라
+        setInterval(displayNow , 1000) // 1000=1초 마다 움직임
+      // 현재 시간함수
+      function displayNow() {
+        let now = new Date();
+        // console.log(now);
+        // console.log(now.getHours());
+        const currentTime = now.toLocaleTimeString();
+        // console.log(currentTime);
+        const display = document.querySelector(".display")
+        display.innerHTML = `${currentTime}`
+      }
+    </script>
+  </body>
+</html>

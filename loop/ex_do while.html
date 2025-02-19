@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인시 비밀번호 입력</title>
+  </head>
+  <body>
+    <h2>로그인</h2>
+    <input type="password" name="password" id="password" placeholder="비밀번호입력" />
+    <button onclick="check()">로그인</button>
+    <script>
+      function check() {
+        // alert("클릭")
+        let password;
+        do {
+          password = prompt("비밀번호를 입력하세요.");
+        } while (password != "1234");
+        alert("로그인 성공!!!")
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>resize 이벤트</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(127, 163, 195);
+      }
+      .active {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>resize이벤트</h1>
+    <div class="box"></div>
+    <p>브라우저 창의 크기를 조절해주세요.</p>
+    <script>
+      window.addEventListener("resize", function () {
+        const box = document.querySelector(".box");
+        // console.log(window.innerWidth);
+        //(만약에 window 안의 넓이값이 1000보다 작으면){box->active 클래스로 변경하라}
+        if (window.innerWidth < 600) {
+          box.classList.add("active");
+        } else {
+          box.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

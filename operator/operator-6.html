@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OR연산자</title>
+  </head>
+  <body>
+    <h2>OR연산자 (||) 예제</h2>
+    <p id="demo"></p>
+    <script>
+      let age = 20;
+      let mission = false;
+      if (age >= 18 || mission) {
+        document.querySelector("#demo").textContent = "당신은 성인이고 권한이 있습니다.";
+      } else {
+        document.querySelector("#demo").textContent = "당신은 성인이아니고 권한이 없습니다.";
+      }
+    </script>
+  </body>
+</html>

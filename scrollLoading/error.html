@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error 이벤트</title>
+    <style>
+        #img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../scrollLoading/KakaoTalk_20250211_101243720.png" alt="이미지" id="img" >
+<script>
+    const img = document.getElementById("img")
+    img.addEventListener("error" , function(){
+        console.log("이미지 로딩 실패");
+        img.src =  "../scrollLoading/KakaoTalk_20250211_101243720.jpg"
+    })
+</script>
+</body>
+</html>
