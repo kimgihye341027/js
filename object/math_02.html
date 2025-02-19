@@ -28,11 +28,11 @@
       console.log(`랜덤숫자:${com} `);
       //   선택 이미지
       document.write(`${com}`);
-      document.write(` <img src="images/math_img_${com}.jpg" alt="이미지"> `);
+      document.write(`<img src="images/math_img_${com}.jpg" alt="이미지${com}">`);
       if (gameNUm === com) {
-        document.write(`<img src="images/game_1.jpg" alt="이미지">`);
+        document.write(`<img src="images/game_1.jpg" alt="성공이미지">`);
       } else {
-        document.write(`<img src="images/game_2.jpg" alt="이미지">`);
+        document.write(`<img src="images/game_2.jpg" alt="실패이미지">`);
       }
     </script>
   </body>
