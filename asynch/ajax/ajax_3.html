@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // json데이터중 하나만 출력
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "data3.json", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          document.write(`<h2>타이틀: ${data.title}<br>`);
+          document.write(`이미지: <img src="${data.image}" alt="${data.alt}"/>`);
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>

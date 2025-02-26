@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch() 데이터 받아오기</title>
+    <!-- Fetch: API에서 데이터를 가져오거나 서버에 데이터를 보낼 때 사용 -->
+  </head>
+  <body>
+    <div id="display">
+      <!-- js출력 content.html -->
+    </div>
+    <div id="display2">
+      <!-- js출력 content2.html -->
+    </div>
+    <script>
+       // constents1 내용 출력
+      fetch("content.html")
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("요청실패");
+          }
+          return response.text();
+        })
+        .then((data) => {
+          console.log(data);
+          document.getElementById("display").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error(`error : ${error}`);
+        });
+        // constents2 내용 출력
+        fetch("content2.html") // fetch("content2.html")로 content2.html 파일을 요청
+        .then((response) => { 
+          console.log(response); //응답(response)을 확인
+          if (!response.ok) {
+            throw new Error("요청실패");  //실패하면 throw new Error("요청실패")로 오류 발생
+          }
+          return response.text(); //성공하면 response.text()로 HTML 데이터를 변환
+        })
+        .then((data) => {
+          console.log(data); //변환된 데이터를 화면에 표시 (display2 요소의 innerHTML에 넣음)
+          document.getElementById("display2").innerHTML = data;
+        })
+        .catch((error) => {
+          //console.log(error);
+          console.error(`error : ${error}`);
+        });
+    </script>
+  </body>
+</html>

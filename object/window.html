@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체 주요 속성과 메서드</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        color: #4caf50;
+      }
+      h2 {
+        margin-top: 20px;
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #45a049;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Window 객체 주요 속성과 메서드</h1>
+
+    <h2>Window 객체 속성</h2>
+    <ul>
+      <li>
+        <strong>window.innerWidth</strong>:
+        <span id="innerWidth">
+          <!-- js출력 -->
+        </span>
+      </li>
+      <li><strong>window.innerHeight</strong>: <span id="innerHeight"></span></li>
+      <li><strong>window.location</strong>: <span id="location"></span></li>
+      <li><strong>window.document</strong>: <span id="document"></span></li>
+      <li><strong>window.history</strong>: <span id="history"></span></li>
+      <li><strong>window.navigator</strong>: <span id="navigator"></span></li>
+    </ul>
+
+    <h2>scrollTo와 scrollBy</h2>
+    <ul>
+      <li><strong>scrollTo(x, y)</strong>: 페이지의 지정된 위치로 스크롤</li>
+      <li><strong>scrollBy(x, y)</strong>: 현재 위치를 기준으로 지정된 거리만큼 스크롤</li>
+    </ul>
+    <button onclick="window.scrollTo(0, 0)">페이지 맨 위로 이동(scrollTo)</button>
+    <button onclick="window.scrollBy(0, 100)">100px 아래로 이동(scrollBy)</button>
+    <h2>Window 객체 메서드</h2>
+    <ul>
+      <li><strong>alert()</strong>: <button onclick="alert('안녕하세요!')">실행</button></li>
+      <li><strong>confirm()</strong>: <button onclick="confirm('확인하시겠습니까?')">실행</button></li>
+      <li><strong>prompt()</strong>: <button onclick="prompt('이름을 입력하세요:')">실행</button></li>
+      <li><strong>open()</strong>: <button onclick="window.open('https://www.naver.com', '_blank')">실행</button></li>
+      <li><strong>close()</strong>: <button onclick="window.close()">실행</button></li>
+      <li>
+        <strong>setTimeout()</strong>: <button onclick="setTimeout(()=>alert('3초 후 실행!'), 3000)">실행</button>
+      </li>
+      <li>
+        <strong>setInterval()</strong>:
+        <button onclick="let id = setInterval(()=>console.log('반복 실행'), 1000)">실행</button>
+      </li>
+    </ul>
+
+    <script>
+      document.getElementById("innerWidth").textContent = `${window.innerWidth}px`;
+      document.getElementById("innerHeight").textContent = `${window.innerHeight}px`;
+      // 웹브라우저의 현재표시된 페이지의 URL정보가 포함된 객체
+      document.getElementById("location").textContent = `${window.location}`;
+      // 웹브라우저의 표시된  THML문서 정보가 포함된 객체
+      document.getElementById("document").textContent = `${window.document}`;
+      // 웹브라우저 저장된 방문 기록이 포함된 객체
+      document.getElementById("history").textContent = `${window.history}`;
+      // 웹브라우저 정보가 포함됨 객체
+      document.getElementById("navigator").textContent = `${window.navigator}`;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+[
+  { "name": "John", "age": 30, "isStudent": false },
+  { "name": "Jane", "age": 25, "isStudent": true },
+  { "name": "Mike", "age": 35, "isStudent": false },
+  { "name": "Emily", "age": 28, "isStudent": true },
+  { "name": "hyn", "age": 30, "isStudent": false },
+  { "name": "Jane2", "age": 35, "isStudent": true },
+  { "name": "Mike3", "age": 55, "isStudent": false },
+  { "name": "Emily4", "age": 18, "isStudent": true }
+]

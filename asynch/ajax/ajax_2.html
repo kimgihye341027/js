@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // json데이터중 하나만 출력
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "data2.json", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          // console.log(data);
+          let output = "<ul>";
+          data.forEach((item) => {
+            // console.log(item);
+            output += `
+              <li> 이름: ${item.name} - 나이 ${item.age}</li>
+              `;
+          });
+          output += "</ul>"
+          document.write(output)
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>

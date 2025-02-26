@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax예제</title>
+  </head>
+  <body>
+    <script>
+      //1.get 요청으로 데이터 가져오기
+      const xhr = new XMLHttpRequest(); // XMLHttpRequest
+      xhr.open("GET", "data.json", true); //get방식으로 data.json 파일 요청(비동기방식)
+      //   console.log(xhr);
+
+      xhr.onload = function () {
+        // 요청이 완료되면 실행되는 콜백함수
+        if (xhr.status === 200) {
+          // console.log(xhr);
+          // 응답 텍스트 (JSON형식)을 객체로 변환
+          const data = JSON.parse(xhr.responseText);
+          //   console.log(data);
+
+          //   console.log(data.users);
+
+          data.users.forEach((data, index) => {
+            // console.log(data);
+            // console.log(index);
+            document.write(`이름:${data.name} , 나이:${age.name} <br>  `);
+          });
+        }
+      };
+      xhr.send(); // 요청전송
+      // 2.POST 요청으로 데이터 보내기
+      const xhr1 = new XMLHttpRequest();
+      xhr1.open("POST", "submit.php", true); // POST방식으로 submit.php에 요청(비동기방식)
+      xhr1.setRequestHeader("content-Type", "application/json"); // 요청헤더에 JSON형식 지정
+      xhr1.onload = function () {
+        if (xhr1.status === 200) {
+          console.log("데이터 전송 완료"); // 요청 성공시 출력
+        }
+      };
+      // json 문자열로 데이터 전송
+      xhr1.send(JSON.stringify({ id: 1, name: "홍길동", age: 25 }));
+      
+    </script>
+  </body>
+</html>

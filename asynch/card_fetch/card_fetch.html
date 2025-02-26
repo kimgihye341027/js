@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .menu {
+        width: 70%;
+        margin: 100px auto;
+        display: flex;
+        background-color: aquamarine;
+      }
+      .menu-item {
+        flex: 1;
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f0f0f0;
+        text-align: center;
+      }
+      .menu-item:hover,
+      .menu-item.active {
+        background-color: #ddd;
+      }
+      .card-container {
+        width: 80%;
+        margin: auto;
+      }
+      .card {
+        display: none;
+        gap: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .card.active {
+        display: flex;
+      }
+      .card li {
+        flex: 1;
+        text-align: center;
+        background-color: aliceblue;
+      }
+      .card li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="menu-item">메뉴 1</div>
+      <div class="menu-item">메뉴 2</div>
+      <div class="menu-item">메뉴 3</div>
+    </div>
+    <div class="card-container">
+      <!-- js -->
+    </div>
+    <script>
+      const cardContainer = document.querySelector(".card-container");
+      fetch("cardData.json")
+        .then((response) => {
+          //   console.log(response);
+          return response.json();
+        })
+        .then((cardData) => {
+          // console.log(cardData);
+          cardData.forEach((menu, index) => {
+            // console.log(`menu :${menu} , index:${index}`);
+            const cardList = document.createElement("ul");
+            // console.log(cardList);
+            cardList.classList.add("card");
+            menu.forEach((card) => {
+              //   console.log(card);
+              const cardItem = document.createElement("li");
+              //   console.log(cardItem);
+              cardItem.innerHTML = `
+                 <img src="${card.imageSrc}" alt="${card.description}">
+                 <h2>설명:${card.description} </h2>
+                 <p>가격:${card.price} </p>
+                `;
+              cardList.appendChild(cardItem);
+            });
+            cardContainer.appendChild(cardList);
+          });
+          //   메뉴아이템에 클릭했을때
+          const menuItem = document.querySelectorAll(".menu-item");
+          menuItem.forEach((menuItem, index) => {
+            // console.log(menuItem);
+            menuItem.addEventListener("click", function () {
+              showCard(index);
+            });
+          });
+          // 보여지는 함수
+          function showCard(index) {
+            // console.log(index);
+            const cards = document.querySelectorAll(".card");
+            // console.log(cards);
+            const menuItems = document.querySelectorAll(".menu-item");
+            cards.forEach((card, i) => {
+              //   console.log(card, i);
+              card.classList.toggle("active", i === index);
+            });
+            menuItems.forEach((menuItem , i)=>{
+              menuItems.classList.toggle("active" ,i === index)
+            })
+          }
+          showCard(2) // 화면페이지 처음 보여질때 화면순서
+        })
+        .catch((error) => {
+          console.error("error:", error);
+        });
+    </script>
+  </body>
+</html>

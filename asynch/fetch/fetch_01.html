@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch() 데이터 받아오기</title>
+    <!-- Fetch: API에서 데이터를 가져오거나 서버에 데이터를 보낼 때 사용 -->
+  </head>
+  <body>
+    <script>
+      fetch("data1.json")
+        .then(function (response) {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("네트워크 응답을 받지 못함");
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        })
+        .catch(function (error) {
+          console.log("요청실패:", error);
+        });
+    </script>
+  </body>
+</html>

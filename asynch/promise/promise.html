@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. promise.then()
+      fetch("data.json") // 파일요청
+        .then((Response) => Response.json()) // JSON 변화 :방법1
+        //.then((Response)=> {rethurn Response.json()}) // JSON 변화 :방법2
+        //.then((data) => console.log("data")) // 데이타 받기,실행
+        .catch((error) => console.error("JSON파일을 불러오는데 실패했습니다."));
+      // 2.async/await 방식 ,이름짖기(params):매게변수
+      async function LoadJSON() {
+        try {
+          const reponse = await fetch("data.json");
+          //console.log(reponse);
+          const data = await reponse.json();
+          console.log(data);
+        } catch (error) {
+          console.error("JSON파일을 불러오는데 실패했습니다.", error);
+        }
+      }
+      LoadJSON();
+        //   3.Promise로 JSON로딩
+        function getJSON(url) {
+        return new Promise((resolve, reject) => {
+          fetch(url)
+            .then((response) => {
+              if (!response.ok) throw new Error("네트워크 오류"); // 응답이 실패하면 에러 발생
+              return response.json(); // JSON데이터로 변환
+            })
+            .then((data) => resolve(data))
+            .catch((error) => reject(error));
+        });
+      }
+      getJSON("data.json")
+        .then((data) => console.log(data))
+        .catch((error) => console.error("JSON파일을 불러오는데 실패했습니다.", error));
+    </script>
+  </body>
+</html>
+
